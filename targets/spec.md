@@ -10,7 +10,7 @@ Reproduce this figure, starting from your working `02_interact.py`:
 
 - Play a **round-robin**: every strategy vs every strategy, **including the diagonal**
   (self-play), all five: `angel, devil, copycat, grudger, copykitten`.
-- **10 rounds** per match, default payoff (`R,S,T,P = 2,-1,3,0`).
+- **10 rounds** per match, default payoff (`R,S,T,P = 2,-1,3,0`), **no noise** (both noise sliders at 0).
 - Cell value = **mean payoff per round** for the *row* strategy against the *column*
   strategy (so values sit on the payoff scale, roughly −1…3).
 

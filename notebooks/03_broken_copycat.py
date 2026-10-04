@@ -1,23 +1,21 @@
 import marimo
 
-__generated_with = "0.9.0"
+__generated_with = "0.25.1"
 app = marimo.App(width="medium")
 
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        # 03 · The verification sting
+    mo.md(r"""
+    # 03 · The verification sting
 
-        Here is a **finished** tournament notebook — a colleague sends it to you.
-        It runs, and the heatmap below looks perfectly plausible.
+    Here is a **finished** tournament notebook — a colleague sends it to you.
+    It runs, and the heatmap below looks perfectly plausible.
 
-        **Your job:** decide whether it is *correct*. Work with your agent, but the
-        acceptance checks are yours to run and yours to believe. (See the three
-        invariants in the exercise sheet — one of them is the one that bites.)
-        """
-    )
+    **Your job:** decide whether it is *correct*. Work with your agent, but the
+    acceptance checks are yours to run and yours to believe. (See the three
+    invariants in the exercise sheet — one of them is the one that bites.)
+    """)
     return
 
 
@@ -133,16 +131,14 @@ def _(alt, strategies, tournament):
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        ::: {.callout-important}
-        A plausible figure is **not** validation. Before you trust this result, check:
-        does **Copycat vs Devil** earn what it should? Does your control (**Angel vs
-        Devil**) still agree? One passes, one fails — and the gap tells you where the
-        bug lives.
-        :::
-        """
-    )
+    mo.md(r"""
+    ::: {.callout-important}
+    A plausible figure is **not** validation. Before you trust this result, check:
+    does **Copycat vs Devil** earn what it should? Does your control (**Angel vs
+    Devil**) still agree? One passes, one fails — and the gap tells you where the
+    bug lives.
+    :::
+    """)
     return
 
 
