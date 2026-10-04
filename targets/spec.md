@@ -42,3 +42,19 @@ exercise page.
 |---|---|
 | `eot-leaderboard-vs-rounds.png` | **tournament score** = mean of `mean_payoff_a` over all 5 opponents (incl. self-play), one round-robin per match length, **rounds 1–20** |
 | `eot-match-margin-heatmap.png` | **match margin** = `score_a − score_b`, 10 rounds; > 0 the row strategy won the match, < 0 it lost |
+
+# Afternoon target — the maps (`eot-maps.png`, exercise 08)
+
+**Research question:** *where* in (rounds × noise) does cooperation survive, and *which*
+strategy wins there?
+
+| Pinned | Value |
+|---|---|
+| starting population | all five strategies, 5 each (25 agents) |
+| evolution | your `simulate` (04's toy rule: drop the 5 lowest, clone the 5 highest), 30 generations |
+| rounds per match | 2, 3, 5, 10, 20 |
+| noise | 0, 0.02, 0.05, 0.1, 0.2 |
+| seeds | 0, 1, 2 |
+| one run's file | `results/sim/rounds-{rounds}_noise-{noise}_seed-{seed}.csv` |
+| cooperation (left map) | last generation's share of cooperative moves, **mean over seeds** |
+| winner (right map) | largest group in the last generation, **most common across seeds** |

@@ -4,3 +4,4 @@ __marimo__/
 .snakemake/
 results/
 .DS_Store
+.pytest_cache/

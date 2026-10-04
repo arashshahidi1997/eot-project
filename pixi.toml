@@ -23,6 +23,7 @@ pytest = "*"
 
 [pypi-dependencies]
 snakemake = ">=8.0"   # PyPI wheels: same version on every platform
+eot = { path = ".", editable = true }   # your package (src/eot) — exercise 05
 
 [tasks]
 selftest = "python selftest.py"
