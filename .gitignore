@@ -5,3 +5,7 @@ __marimo__/
 results/
 .DS_Store
 .pytest_cache/
+# made by you in 09, and by Claude (personal permissions)
+report.html
+summary-before.csv
+.claude/settings.local.json

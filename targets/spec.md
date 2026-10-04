@@ -30,8 +30,8 @@ enough.
 | **Copycat vs Copycat** | cooperative (20 / 20) | necessary but **not sufficient** |
 | **Copycat vs Devil** | **−1 / +3** | the discriminating check |
 
-If Copycat vs Devil gives −10 / +30, Copycat never retaliated — it's reading the
-wrong history. One "obvious" test (self-play) passes anyway; that's the lesson.
+If Copycat vs Devil gives −10 / +30, Copycat never retaliated. One "obvious" test
+(self-play) passes anyway; that's the lesson.
 
 ## Follow-up targets (pinned computation)
 
@@ -57,4 +57,4 @@ strategy wins there?
 | seeds | 0, 1, 2 |
 | one run's file | `results/sim/rounds-{rounds}_noise-{noise}_seed-{seed}.csv` |
 | cooperation (left map) | last generation's share of cooperative moves, **mean over seeds** |
-| winner (right map) | largest group in the last generation, **most common across seeds** |
+| winner (right map) | per seed: the largest group in the last generation (`tie` if several share the top); across seeds: the **strict majority**, else `tie` |
