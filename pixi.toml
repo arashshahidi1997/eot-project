@@ -1,0 +1,28 @@
+# Evolution of Trust — the Day 1–2 environment.
+#   pixi install          # once (uses pixi.lock: everyone gets the same versions)
+#   pixi run selftest     # all green → ready
+#   pixi run marimo edit notebooks/02_interact.py
+# Day 3 (DataLad · BIDS) brings its own environment.
+
+[workspace]
+name = "eot"
+version = "2026.10.0"
+description = "Evolution of Trust — The Agentic Research Workflow (GSN-LMU, Oct 2026)"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+python = ">=3.11,<3.13"
+marimo = ">=0.9"
+numpy = "*"
+pandas = "*"
+altair = "*"
+vl-convert-python = "*"   # altair → PNG/SVG export
+matplotlib = "*"
+pytest = "*"
+
+[pypi-dependencies]
+snakemake = ">=8.0"   # PyPI wheels: same version on every platform
+
+[tasks]
+selftest = "python selftest.py"

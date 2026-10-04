@@ -1,0 +1,6 @@
+.pixi/
+__pycache__/
+__marimo__/
+.snakemake/
+results/
+.DS_Store
