@@ -18,7 +18,7 @@ format:
 
 ## My question
 
-<!-- 14: the question, prediction and test from notes/spec.md -->
+<!-- 14: your question and why it is worth asking, from notes/idea.md -->
 
 ## What I did
 
