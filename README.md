@@ -23,7 +23,7 @@ pixi task list            # convert · index · query · show · review
 
 - `notebooks/` — the Marimo notebooks you work in
 - `targets/` — figures you reproduce, with their spec
-- `src/eot/` — the model package (empty: you build it in the afternoon)
+- `src/eot/` — the model package (you built it on Day 1; reference in `checkpoints/day1/`)
 - `workflow/` — the Snakemake pipeline (afternoon)
 - `library/` — the papers (Day 2): list, `references.bib`; the text comes from the Drive zip
 - `tools/lit.py` — search the library (`pixi run query`, `pixi run show`)

@@ -3,14 +3,19 @@
 pixi run index                                    # library/docling/*.json → library/index/
 pixi run query "why does cooperation cycle?"      # by meaning (embeddings)
 pixi run query "tit-for-tat" --by words           # by words (BM25)
-pixi run show imhof2005:12                        # one chunk, in full, with its page
+pixi run show garcia2018:41                       # one chunk, in full, with its page
 """
 
 import argparse
 import functools
 import json
 import os
+import sys
 from pathlib import Path
+
+sys.stdout.reconfigure(
+    encoding="utf-8"
+)  # Windows consoles default to cp1252: ≈, →, λ crash
 
 os.environ.setdefault("HF_HUB_DISABLE_PROGRESS_BARS", "1")  # quiet model loading
 os.environ.setdefault("HF_HUB_VERBOSITY", "error")
@@ -112,7 +117,11 @@ def query(text, by, k):
 
 
 def show(chunk_id):
-    c = next(c for c in load() if c["id"] == chunk_id)
+    c = next((c for c in load() if c["id"] == chunk_id), None)
+    if c is None:
+        sys.exit(
+            f"no chunk {chunk_id} — ids look like garcia2018:41 (see pixi run query)"
+        )
     key = chunk_id.split(":")[0]
     print(f"{chunk_id} · {c['section']}\n\n{c['text']}\n")
     print(
