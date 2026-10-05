@@ -1,4 +1,4 @@
-"""Search the library; show the evidence.
+"""Search the library by meaning or by words; show the evidence (optional, exercise 12).
 
 pixi run index                                    # library/docling/*.json → library/index/
 pixi run query "why does cooperation cycle?"      # by meaning (embeddings)
@@ -74,7 +74,7 @@ def load():
     return [json.loads(line) for line in open(INDEX / "chunks.jsonl", encoding="utf-8")]
 
 
-# Loaded once per process: a server keeps it warm; each CLI call reloads it.
+# Loaded once per process: each CLI call reloads it.
 @functools.cache
 def model():
     import transformers

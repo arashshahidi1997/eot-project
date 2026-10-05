@@ -22,7 +22,7 @@ format:
 
 ## What I did
 
-<!-- 15: the model change, the control, the runs -->
+<!-- 15: the Plan from notes/idea.md — change, control, runs -->
 
 ## Results
 
@@ -30,4 +30,4 @@ format:
 
 ## What I learned
 
-<!-- 16: was the prediction right, wrong, or not yet tested? -->
+<!-- 16: judged by your "wrong if": confirmed, contradicted, or not yet tested? -->

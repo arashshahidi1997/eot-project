@@ -42,14 +42,13 @@ quarto = "*"
 docling = ">=2.50"
 sentence-transformers = "*"
 bm25s = "*"
-mcp = "*"                 # only for the MCP demo (instructor) and the stretch exercise
 
 [environments]
 lit = { features = ["lit"], no-default-feature = true }
 
 [feature.lit.tasks]
 convert = "docling --to md --to json --image-export-mode placeholder --no-ocr --output library/docling"  # + a PDF
-index = "python tools/lit.py index"     # library/docling → library/index
+index = "python tools/lit.py index"     # optional (12): library/docling → library/index
 query = "python tools/lit.py query"     # + "a question"
 show = "python tools/lit.py show"       # + a chunk id, e.g. knight2016:3
 review = "quarto render reports/study.qmd"

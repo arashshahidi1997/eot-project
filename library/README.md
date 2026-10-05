@@ -23,4 +23,4 @@
 - `pdf/` — the CC-BY papers ship here; the rest come in the Drive zip (free to read,
   not ours to republish — so `library/docling/` and the other PDFs are never committed).
 - `docling/` — each paper as Markdown (to read) and JSON (to chunk, with page numbers).
-- `index/` — built by `pixi run index`.
+- `index/` — built by `pixi run index` (optional: search by meaning).

@@ -15,7 +15,7 @@ pixi run selftest
 ## Day 2 — the literature toolbox
 
 ```bash
-pixi install -e lit       # once: Docling, search, Quarto (~0.7 GB, its own environment)
+pixi install -e lit       # once: Docling, Quarto, search (~0.7 GB, its own environment)
 pixi task list            # convert · index · query · show · review
 ```
 
@@ -26,8 +26,8 @@ pixi task list            # convert · index · query · show · review
 - `src/eot/` — the model package (you built it on Day 1; reference in `checkpoints/day1/`)
 - `workflow/` — the Snakemake pipeline (afternoon)
 - `library/` — the papers (Day 2): list, `references.bib`; the text comes from the Drive zip
-- `tools/lit.py` — search the library (`pixi run query`, `pixi run show`)
-- `notes/`, `reports/study.qmd` — your reading notes and your study (Day 2)
+- `tools/lit.py` — search the library by meaning (optional: `pixi run query`, `pixi run show`)
+- `notes/`, `reports/study.qmd` — your reading notes, your brief (`notes/idea.md`) and your study (Day 2)
 
 New material arrives during the day: your agent pulls it in (see the exercise pages).
 
