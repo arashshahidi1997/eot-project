@@ -9,3 +9,14 @@ results/
 report.html
 summary-before.csv
 .claude/settings.local.json
+# Day 2: the library text is free to read, not ours to republish — never committed
+library/docling/
+library/index/
+library/pdf/*
+!library/pdf/knight2016.pdf
+!library/pdf/garcia2018.pdf
+!library/pdf/glynatsi2024.pdf
+# Quarto output
+reports/*.html
+reports/*_files/
+.quarto/

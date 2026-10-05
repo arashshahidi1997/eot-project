@@ -1,0 +1,33 @@
+---
+title: "When does cooperation survive?"
+subtitle: "A study with the Evolution of Trust model"
+author: "Your name"
+bibliography: ../library/references.bib
+format:
+  html:
+    embed-resources: true
+---
+
+## What the literature says
+
+<!-- 13: what the papers say about our question, every claim cited [@key] -->
+
+## Candidate directions
+
+<!-- 13: three changes to our model the literature suggests -->
+
+## My question
+
+<!-- 14: the question, prediction and test from notes/spec.md -->
+
+## What I did
+
+<!-- 15: the model change, the control, the runs -->
+
+## Results
+
+<!-- 16: the figure, with @fig-main in the text -->
+
+## What I learned
+
+<!-- 16: was the prediction right, wrong, or not yet tested? -->
