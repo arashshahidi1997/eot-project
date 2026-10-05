@@ -14,6 +14,8 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/eot"]
 
-# marimo: when src/eot changes, mark the cells that use it as stale.
+# marimo: run every cell when a notebook opens (marimo's default is now off);
+# when src/eot changes, mark the cells that use it as stale.
 [tool.marimo.runtime]
+auto_instantiate = true
 auto_reload = "lazy"
