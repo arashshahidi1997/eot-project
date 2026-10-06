@@ -22,7 +22,7 @@ for name, doc in [("angel", "Always cooperate."), ("devil", "Always defect.")]:
     )
 
 # 2. "Textbook" payoffs.
-src = re.sub(r"^(R, S, T, P = 2, -1, )3(, 0)", r"\g<1>5\2", src, flags=re.M)
+src, n_payoff = re.subn(r"^(R, S, T, P = 2, -1, )3(, 0)", r"\g<1>5\2", src, flags=re.M)
 game.write_text(src, encoding="utf-8")
 
 # 3. A test for copycat's opening move.
@@ -35,4 +35,8 @@ if "test_copycat_opens_with_cooperation" not in t:
         encoding="utf-8",
     )
 
-print("Agent: I tidied up game.py and added a test. 3 edits in 2 files.")
+if n_payoff:
+    print("Agent: I tidied up game.py and added a test. 3 edits in 2 files.")
+else:
+    print("Your game.py has no `R, S, T, P = 2, -1, 3, 0` line, so only 2 edits were made.")
+    print("Start from the reference instead: cp -r checkpoints/day1/src . — then rerun this.")
