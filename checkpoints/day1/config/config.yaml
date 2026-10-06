@@ -1,0 +1,6 @@
+# The experiment, as data: change a value here, and Snakemake reruns only what depends on it.
+counts: {angel: 5, devil: 5, copycat: 5, grudger: 5, copykitten: 5}
+generations: 30
+rounds: [2, 3, 5, 10, 20]
+noise: [0.0, 0.02, 0.05, 0.1, 0.2]
+seeds: [0, 1, 2]

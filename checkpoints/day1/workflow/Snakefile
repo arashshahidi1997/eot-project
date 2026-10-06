@@ -1,0 +1,103 @@
+configfile: "config/config.yaml"
+
+
+report: "report/workflow.rst"
+
+
+wildcard_constraints:
+    rounds=r"\d+",
+    noise=r"[0-9.]+",
+    seed=r"\d+",
+
+
+SIMS = expand(
+    "results/sim/rounds-{rounds}_noise-{noise}_seed-{seed}.csv",
+    rounds=config["rounds"],
+    noise=config["noise"],
+    seed=config["seeds"],
+)
+# One trajectory figure per (rounds, noise), for the first seed.
+TRAJECTORIES = expand(
+    "results/fig/trajectory_rounds-{rounds}_noise-{noise}_seed-{seed}.png",
+    rounds=config["rounds"],
+    noise=config["noise"],
+    seed=config["seeds"][:1],
+)
+
+
+rule all:
+    input:
+        "results/fig/tournament.png",
+        TRAJECTORIES,
+        "results/maps.png",
+
+
+rule simulate:
+    output:
+        "results/sim/rounds-{rounds}_noise-{noise}_seed-{seed}.csv",
+    params:
+        counts=config["counts"],
+        generations=config["generations"],
+    script:
+        "scripts/simulate.py"
+
+
+rule summarize:
+    input:
+        SIMS,
+    output:
+        "results/summary.csv",
+    script:
+        "scripts/summarize.py"
+
+
+rule plot:
+    input:
+        "results/summary.csv",
+    output:
+        report(
+            "results/maps.png",
+            caption="report/maps.rst",
+            category="3 · Where does cooperation survive?",
+            labels={"figure": "maps: rounds × noise"},
+        ),
+    script:
+        "scripts/plot_maps.py"
+
+
+rule tournament:
+    output:
+        "results/tournament.csv",
+    params:
+        rounds=10,
+    script:
+        "scripts/tournament.py"
+
+
+rule plot_tournament:
+    input:
+        "results/tournament.csv",
+    output:
+        report(
+            "results/fig/tournament.png",
+            caption="report/tournament.rst",
+            category="1 · Who wins a tournament?",
+            labels={"figure": "tournament heatmap"},
+        ),
+    script:
+        "scripts/plot_tournament.py"
+
+
+rule plot_trajectory:
+    input:
+        "results/sim/rounds-{rounds}_noise-{noise}_seed-{seed}.csv",
+    output:
+        report(
+            "results/fig/trajectory_rounds-{rounds}_noise-{noise}_seed-{seed}.png",
+            caption="report/trajectory.rst",
+            category="2 · How does a population evolve?",
+            subcategory="rounds {rounds}",
+            labels={"rounds": "{rounds}", "noise": "{noise}"},
+        ),
+    script:
+        "scripts/plot_trajectory.py"
