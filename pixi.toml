@@ -27,3 +27,28 @@ eot = { path = ".", editable = true }   # your package (src/eot) — exercise 05
 
 [tasks]
 selftest = "python selftest.py"
+
+# Day 2 — the literature toolbox. Its own environment (heavy: Docling needs PyTorch),
+# so the Day-1 environment stays exactly as it was.
+#   pixi install -e lit                      # once, ~0.7 GB download
+#   pixi run convert library/pdf/knight2016.pdf
+[feature.lit.dependencies]
+python = "3.12.*"
+pytorch = { version = "*", build = "cpu*" }
+torchvision = "*"
+quarto = "*"
+
+[feature.lit.pypi-dependencies]
+docling = ">=2.50"
+sentence-transformers = "*"
+bm25s = "*"
+
+[environments]
+lit = { features = ["lit"], no-default-feature = true }
+
+[feature.lit.tasks]
+convert = "docling --to md --to json --image-export-mode placeholder --no-ocr --output library/docling"  # + a PDF
+index = "python tools/lit.py index"     # optional (12): library/docling → library/index
+query = "python tools/lit.py query"     # + "a question"
+show = "python tools/lit.py show"       # + a chunk id, e.g. knight2016:3
+review = "quarto render reports/study.qmd"
