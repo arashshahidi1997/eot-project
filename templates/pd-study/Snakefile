@@ -18,7 +18,7 @@ rule summarize:  # participant level: one job per subject
     output:
         "derivatives/behavior/{subject}/{subject}_task-{task}_summary.tsv",
     script:
-        "scripts/summarize.py"
+        "code/summarize.py"
 
 
 rule group:  # group level: every participant → one table + one figure
@@ -32,4 +32,4 @@ rule group:  # group level: every participant → one table + one figure
         tsv="derivatives/group/behavior_summary.tsv",
         png="derivatives/group/behavior_summary.png",
     script:
-        "scripts/group.py"
+        "code/group.py"
