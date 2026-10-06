@@ -1,0 +1,16 @@
+# pd-study — Day 3: ds007822 → derivatives, with Snakemake.
+#   pixi install          # once (pixi.lock: the Day-1 versions, mostly already on your laptop)
+#   pixi run snakemake -n # what would run
+
+[workspace]
+name = "pd-study"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+python = ">=3.11,<3.13"
+pandas = "*"
+matplotlib = "*"
+
+[pypi-dependencies]
+snakemake = ">=8.0"
