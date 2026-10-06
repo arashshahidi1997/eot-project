@@ -43,6 +43,9 @@ docling = ">=2.50"
 sentence-transformers = "*"
 bm25s = "*"
 
+[feature.lit.system-requirements]
+macos = "14.0"   # Docling's PDF parser has Mac builds for macOS 14+ on Apple silicon only
+
 [environments]
 lit = { features = ["lit"], no-default-feature = true }
 
